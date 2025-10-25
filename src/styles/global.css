@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+:root {
+    --primary: #0246ac;
+    --secondary: #79A5D8;
+    --tertiary: #03214f;
+}
+
+body {
+    font-family: 'Mulish', sans-serif;
+}
+
+.btn-primary {
+    @apply flex justify-center bg-[var(--secondary)] rounded-md w-30 px-2 py-1 text-[var(--tertiary)] font-semibold;
+}

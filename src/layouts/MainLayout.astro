@@ -1,0 +1,50 @@
+---
+const { title, videoSRC } = Astro.props;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="../src/styles/global.css" />
+    <meta name="generator" content={Astro.generator} />
+    <title>E.P. N°115 - {title}</title>
+  </head>
+  <body
+    class="container mx-auto px-4 flex flex-col justify-between h-screen bg-[var(--primary)]"
+  >
+    <header class="flex flex-col items-center py-3 gap-3">
+      <h1 class="text-2xl font-bold text-white">
+        E.P. N°115: 3°A / 3°B - {title}
+      </h1>
+      <nav class="flex items-center gap-6">
+        <a href="/" class="btn-primary">Insecticida</a>
+        <a href="/compost" class="btn-primary">Compost</a>
+      </nav>
+    </header>
+    <!-- etiquetas semanticas para mostrar el videoi -->
+    <main class="w-full">
+      <section class="w-full flex flex-col items-center md:justify-center">
+        <video
+          class="rounded-lg w-full lg:w-1/2"
+          src={videoSRC}
+          controls
+          autoplay
+        >
+        </video>
+      </section>
+    </main>
+
+    <footer class="py-3">
+      <p class="text-center text-sm text-white">
+        Copyright © <span id="year"></span> - E.P. N°115 - 3°A / 3°B
+      </p>
+    </footer>
+  </body>
+
+  <script>
+    const year = new Date().getFullYear();
+    document.querySelector("#year")!.textContent = year.toString();
+  </script>
+</html>
