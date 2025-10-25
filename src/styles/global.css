@@ -14,3 +14,7 @@ body {
 .btn-primary {
     @apply flex justify-center bg-[var(--secondary)] rounded-md w-30 px-2 py-1 text-[var(--tertiary)] font-semibold;
 }
+
+.btn-secondary {
+    @apply flex justify-center bg-[var(--tertiary)] rounded-md w-30 px-2 py-2 text-white font-semibold;
+}

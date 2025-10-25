@@ -1,0 +1,42 @@
+---
+const { title, qrSRC, id } = Astro.props;
+//QUiero que el dialog tenga el estilo de un modal y se superponga sobre el contenido de la página
+---
+
+<dialog
+  id={id}
+  class="m-auto bg-[var(--primary)] px-10 py-6 rounded-lg"
+>
+    <header class="mb-4">
+      <h2 class="text-xl font-bold text-white text-center">
+        {title}
+      </h2>
+    </header>
+    <main class="mb-4">
+      <img
+        src={qrSRC}
+        alt="QR Code"
+        class="w-full max-w-sm mx-auto rounded-lg"
+      />
+    </main>
+    <footer class="flex justify-center">
+      <button class="btn-secondary cursor-pointer" id="close-dialog"
+        >Cerrar</button
+      >
+    </footer>
+</dialog>
+
+<script>
+  const dialog = document.querySelector("dialog") as HTMLDialogElement;
+  const closeDialog = document.getElementById(
+    "close-dialog"
+  ) as HTMLButtonElement;
+  closeDialog.addEventListener("click", () => {
+    dialog.close();
+  });
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      dialog.close();
+    }
+  });
+</script>
